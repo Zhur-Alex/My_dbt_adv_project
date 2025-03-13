@@ -17,10 +17,9 @@ def generate_suppliers_data():
         suppliers = []
 
         for company, brand_list in brands.items():
-            supplier_pk = 'supl'+str(uuid.uuid4())[:16].replace("-","")
             for brand in brand_list:
                 suppliers.append({
-                    "supplier_pk" : supplier_pk,
+                    "supplier_pk" : 'supl' + str(uuid.uuid4())[:16].replace("-",""),
                     "company_name" : company,
                     "brand" : brand,
                     "country" : fake_data.country()
