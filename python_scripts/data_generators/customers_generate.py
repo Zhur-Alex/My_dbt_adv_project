@@ -35,6 +35,6 @@ def generate_customers_data(cl_numb):
         customers.append(customer_generation(gender))
 
     df_customers = pd.DataFrame(customers)
-    df_customers.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_customers/cust_{datetime.today().strftime('%Y%m%d_%H%M%S')}", index=False)
+    df_customers.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_customers/cust_{datetime.today().strftime('%Y%m%d_%H%M%S')}.csv", index=False)
 
     customers_ids = [i["customer_pk"] for i in customers]

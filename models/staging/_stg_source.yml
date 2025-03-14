@@ -1,0 +1,10 @@
+sources:
+  - name: stg_sources
+    database: dbt_adv_project
+    schema: raw_data
+    tables:
+      - name: cust_20250313_181244
+      - name: sup_20250313_181244
+      - name: store_20250313_181244
+      - name: ord_20250313_181256
+      - name: prdct_20250313_181244

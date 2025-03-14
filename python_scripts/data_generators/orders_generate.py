@@ -10,9 +10,9 @@ fake_data = Faker("ru_RU")
 
 def generate_orders_data(num_orders):
     # Вынужденное действие для получения файлов с исопльзованием *
-    customers_files = glob("E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_customers/cust_*")
-    products_files = glob("E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_products/prdct_*")
-    stores_files = glob("E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_stores/store_*")
+    customers_files = glob("E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_customers/cust_*.csv")
+    products_files = glob("E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_products/prdct_*.csv")
+    stores_files = glob("E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_stores/store_*.csv")
         
     customers = pd.read_csv(customers_files[0]) if customers_files else pd.DataFrame()
     products = pd.read_csv(products_files[0]) if products_files else pd.DataFrame()
@@ -41,6 +41,6 @@ def generate_orders_data(num_orders):
         })
     
     df_orders = pd.DataFrame(orders)
-    df_orders.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_orders/ord_{datetime.today().strftime('%Y%m%d_%H%M%S')}", index=False)
+    df_orders.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_orders/ord_{datetime.today().strftime('%Y%m%d_%H%M%S')}.csv", index=False)
 
     orders_ids = [i["order_pk"] for i in orders]

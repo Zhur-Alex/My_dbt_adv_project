@@ -34,3 +34,14 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+
+seeds:
+  My_dbt_adv_project:
+    +schema: raw_data
+
+models:
+  My_dbt_adv_project:
+    staging:
+      +schema: staging_data
+      +tags: stg_models
+  

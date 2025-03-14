@@ -22,6 +22,6 @@ def generate_stores_data(num_stores):
         })
 
     df_stores = pd.DataFrame(stores)
-    df_stores.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_stores/store_{datetime.today().strftime('%Y%m%d_%H%M%S')}", index=False)
+    df_stores.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_stores/store_{datetime.today().strftime('%Y%m%d_%H%M%S')}.csv", index=False)
 
     stores_ids = [i["store_pk"] for i in stores]

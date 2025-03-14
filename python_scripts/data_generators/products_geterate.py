@@ -35,6 +35,6 @@ def generate_products_data():
     products_list = product_generation()
 
     df_products = pd.DataFrame(products_list)
-    df_products.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_products/prdct_{datetime.today().strftime('%Y%m%d_%H%M%S')}", index=False)
+    df_products.to_csv(f"E:/DBT LEARNING/My_dbt_adv_project/seeds/raw_products/prdct_{datetime.today().strftime('%Y%m%d_%H%M%S')}.csv", index=False)
 
     products_ids = [i["product_pk"] for i in products_list]

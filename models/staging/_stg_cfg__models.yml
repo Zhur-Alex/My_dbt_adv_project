@@ -1,0 +1,155 @@
+models:
+  - name: stg_customers
+    description: Данные по клиентам табачного магазина
+    docs:
+      show: true
+      node_color: yellow
+    columns:
+      - name: customer_pk
+        data_type: text
+        constraint:
+          - type: not_null
+          - type: unique
+      - name: first_name
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: last_name
+        data_type: text
+      - name: email
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: phone_number
+        data_type: varchar(12)
+        constraint:
+          - type: not_null
+      - name: registration_date
+        data_type: date
+        constraint:
+          - type: not_null
+      - name: address
+        data_type: text
+        constraint:
+          - type: not_null
+        quote: false # обрамление названия колонки кавычками
+  
+  - name: stg_suppliers
+    description: Данные по производителям
+    docs:
+      show: true
+      node_color: yellow
+    columns:
+      - name: supplier_pk
+        data_type: text
+        constraint:
+          - type: not_null
+          - type: unique
+      - name: company_name
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: brand
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: country
+        data_type: text
+        constraint:
+          - type: not_null
+        quote: false 
+
+  - name: stg_shops
+    description: Данные по магазинам табачной продукции
+    docs:
+      show: true
+      node_color: yellow
+    columns:
+      - name: store_pk
+        data_type: text
+        constraint:
+          - type: not_null
+          - type: unique
+      - name: name
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: address
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: city
+        data_type: text
+        constraint:
+          - type: not_null
+        quote: false 
+
+  - name: stg_products
+    description: Данные по товарам табачных магазинов
+    docs:
+      show: true
+      node_color: yellow
+    columns:
+      - name: product_pk
+        data_type: text
+        constraint:
+          - type: not_null
+          - type: unique
+      - name: brand
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: product_name
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: category
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: price
+        data_type: integer
+        constraint:
+          - type: not_null
+          - type: check
+            expression: "price >= 0"
+        quote: false 
+
+  - name: stg_orders
+    description: Данные по заказам клиентов
+    docs:
+      show: true
+      node_color: yellow
+    columns:
+      - name: order_pk
+        data_type: text
+        constraint:
+          - type: not_null
+          - type: unique
+      - name: order_date
+        data_type: data
+        constraint:
+          - type: not_null
+      - name: customer_pk
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: product_pk
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: store_pk
+        data_type: text
+        constraint:
+          - type: not_null
+      - name: quantity
+        data_type: integer
+        constraint:
+          - type: not_null
+          - type: check
+            expression: "quantity > 0"
+      - name: status
+        data_type: text
+        constraint:
+          - type: not_null
+        quote: false

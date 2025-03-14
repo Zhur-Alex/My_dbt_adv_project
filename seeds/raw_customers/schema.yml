@@ -1,0 +1,13 @@
+version: 2
+
+seeds:
+  - name: cust_20250313_181244
+    config:
+      column_types:
+        customer_pk: TEXT
+        first_name: TEXT
+        last_name: TEXT
+        email: TEXT
+        phone_number: TEXT  # Указываем тип TEXT для номеров телефонов
+        registration_date: DATE
+        address: TEXT

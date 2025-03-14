@@ -1,0 +1,41 @@
+order_pk,order_date,customer_pk,product_pk,store_pk,quantity,status
+ordf1c403d5053b,2024-08-10,cust98bf1fc938a041,prdc4c5dea9a053946,stordf29e8ed295,5,Выполнен
+orda446f9d86352,2024-12-31,custd9294b9972b941,prdcd2df81ef7a2b42,stor83319d4a66d,3,Отменен
+ord018cccc136bf,2023-01-22,custefe4f5ca939640,prdc7d00f873f97740,storb3543fb6f54,4,В обработке
+ordc197f66d3302,2023-08-07,cust282688a8a5ad4d,prdc4c5dea9a053946,stor94845bbbc58,5,Выполнен
+orde608c0cf6f9b,2024-08-06,cust6d1721ddf20644,prdcac1663c76c9547,stor83319d4a66d,3,Отменен
+ord9ca2922da95c,2021-09-26,custa52bd4fc684c4f,prdcd2df81ef7a2b42,storb3543fb6f54,1,Выполнен
+ordebd77c287171,2022-09-30,custa52bd4fc684c4f,prdcd2df81ef7a2b42,stor1b7e62e560e,1,Выполнен
+ord2ecb77ddb711,2024-07-28,cust6d1721ddf20644,prdc4c5dea9a053946,stor83319d4a66d,1,Выполнен
+orddf6162c0401b,2025-02-11,cust38682ef6063c4d,prdc7d00f873f97740,stordf29e8ed295,3,В обработке
+ord77fd55d4e705,2024-05-14,cust1d99ce900ea84a,prdcac1663c76c9547,storb3543fb6f54,1,Выполнен
+ord5a241e02d919,2023-01-08,custa52bd4fc684c4f,prdcd2df81ef7a2b42,storb3543fb6f54,1,Отменен
+ord29fac1b8663b,2024-08-06,custde2f7e3f9bb244,prdc4c5dea9a053946,stor1b7e62e560e,1,В обработке
+ord3188c37642d2,2025-03-06,custd9294b9972b941,prdc4c5dea9a053946,stor1b7e62e560e,3,Выполнен
+orda1feaace790c,2023-08-15,custa52bd4fc684c4f,prdcd2df81ef7a2b42,stordf29e8ed295,5,Выполнен
+ord211681779bae,2024-11-07,cust6d1721ddf20644,prdc7d00f873f97740,stordf29e8ed295,3,Выполнен
+ord2efaaa5e73bf,2025-02-25,custd9294b9972b941,prdc7d00f873f97740,stor83319d4a66d,2,Выполнен
+ordc5fabe30c2a8,2024-11-06,cust163660e5749544,prdcac1663c76c9547,stor94845bbbc58,4,Отменен
+ordfadbdd6cb03b,2023-07-19,custefe4f5ca939640,prdc4c5dea9a053946,storb3543fb6f54,5,Отменен
+ord11b87707a6ad,2022-08-16,cust1d99ce900ea84a,prdcd2df81ef7a2b42,stordf29e8ed295,5,Отменен
+ord29e308ae3830,2025-01-19,cust1d99ce900ea84a,prdc7d00f873f97740,stor1b7e62e560e,2,Отменен
+ordaa27a7ca57ee,2024-03-16,cust282688a8a5ad4d,prdc4c5dea9a053946,stor83319d4a66d,1,Выполнен
+ord3ade5043fd44,2025-02-21,cust38682ef6063c4d,prdcd2df81ef7a2b42,storb3543fb6f54,4,В обработке
+orde4b08dc472ed,2023-08-27,cust1d99ce900ea84a,prdcd2df81ef7a2b42,stordf29e8ed295,2,Отменен
+orddd570e87da49,2024-11-21,custd9294b9972b941,prdcd2df81ef7a2b42,stor83319d4a66d,2,Выполнен
+ord1aa5ed387525,2025-02-08,custd9294b9972b941,prdc7d00f873f97740,stordf29e8ed295,5,Отменен
+ordcce2eca409da,2025-02-24,cust6d1721ddf20644,prdcac1663c76c9547,storb3543fb6f54,5,В обработке
+ord190c8f529de4,2025-03-12,cust163660e5749544,prdc4c5dea9a053946,stordf29e8ed295,5,В обработке
+ord15f9359379b9,2024-11-07,cust163660e5749544,prdcac1663c76c9547,stor1b7e62e560e,2,Выполнен
+ord011848a22930,2024-07-24,cust282688a8a5ad4d,prdcd2df81ef7a2b42,storb3543fb6f54,3,В обработке
+ord2549d6937cad,2025-03-11,cust163660e5749544,prdcd2df81ef7a2b42,stordf29e8ed295,2,В обработке
+orde325a860cf66,2022-02-25,cust1d99ce900ea84a,prdcac1663c76c9547,stor94845bbbc58,2,В обработке
+ord2a17ceffa6d6,2023-06-21,cust6d1721ddf20644,prdc7d00f873f97740,stordf29e8ed295,4,Выполнен
+ordb7d2f541cc45,2025-02-03,cust38682ef6063c4d,prdc4c5dea9a053946,storb3543fb6f54,2,Отменен
+ord2c16701c6585,2025-02-08,cust38682ef6063c4d,prdcac1663c76c9547,storb3543fb6f54,5,Выполнен
+ordded9f0f436e2,2025-03-02,custde2f7e3f9bb244,prdcd2df81ef7a2b42,stor94845bbbc58,2,Выполнен
+ord80414762c613,2025-02-13,custd9294b9972b941,prdcd2df81ef7a2b42,stor94845bbbc58,2,Отменен
+ord8e04ebcd1e40,2023-02-11,cust282688a8a5ad4d,prdcd2df81ef7a2b42,stor94845bbbc58,5,Выполнен
+ord9e862b3eeb62,2022-08-18,custefe4f5ca939640,prdc7d00f873f97740,storb3543fb6f54,2,Отменен
+ord15cf4311ae32,2021-11-12,custefe4f5ca939640,prdcd2df81ef7a2b42,stordf29e8ed295,2,Отменен
+ordc2b711228830,2025-02-01,cust98bf1fc938a041,prdc4c5dea9a053946,stor83319d4a66d,4,Выполнен
