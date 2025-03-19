@@ -44,4 +44,13 @@ models:
     staging:
       +schema: staging_data
       +tags: stg_models
-  
+    vault:
+      hubs:
+        +schema: data_vault
+        +tags: hubs
+      links:
+        +schema: data_vault
+        +tags: links
+      sattelites:
+        +schema: data_vault
+        +tags: sattelites

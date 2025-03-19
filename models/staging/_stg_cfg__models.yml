@@ -1,5 +1,5 @@
 models:
-  - name: stg_customers
+  - name: v_stg_customers
     description: Данные по клиентам табачного магазина
     docs:
       show: true
@@ -34,7 +34,7 @@ models:
           - type: not_null
         quote: false # обрамление названия колонки кавычками
   
-  - name: stg_suppliers
+  - name: v_stg_suppliers
     description: Данные по производителям
     docs:
       show: true
@@ -59,7 +59,7 @@ models:
           - type: not_null
         quote: false 
 
-  - name: stg_shops
+  - name: v_stg_shops
     description: Данные по магазинам табачной продукции
     docs:
       show: true
@@ -84,7 +84,7 @@ models:
           - type: not_null
         quote: false 
 
-  - name: stg_products
+  - name: v_stg_products
     description: Данные по товарам табачных магазинов
     docs:
       show: true
@@ -115,7 +115,7 @@ models:
             expression: "price >= 0"
         quote: false 
 
-  - name: stg_orders
+  - name: v_stg_orders
     description: Данные по заказам клиентов
     docs:
       show: true
