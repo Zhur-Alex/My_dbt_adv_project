@@ -1,15 +1,50 @@
-{{
-    config(
-        materialized = 'view'
-    )
-}}
+{%- set yaml_metadata -%}
+source_model: 'sup_20250313_181244'
+derived_columns:
+  supplier_pk: 'supplier_pk::text' 
+  company_name: 'company_name::text'
+  brand: 'brand::text'
+  country: 'country::text'
+  load_datetime: 'current_timestamp::text'
+  record_source: "'stg_source'"
+  effective_from: 'current_timestamp::text'
+hashed_columns:
+  supplier_hashdiff:
+    is_hashdiff: true
+    columns:
+      - company_name
+      - brand 
+      - country
+      - effective_from
+{%- endset -%}
 
-select
+{% set metadata_dict = fromyaml(yaml_metadata) %}
+
+{% set source_model = metadata_dict['source_model'] %}
+
+{% set derived_columns = metadata_dict['derived_columns'] %}
+
+{% set hashed_columns = metadata_dict['hashed_columns'] %}
+
+
+WITH staged_data AS (
+    {{ automate_dv.stage(
+        include_source_columns=true,
+        source_model=source_model,
+        derived_columns=derived_columns,
+        hashed_columns=hashed_columns,
+        ranked_columns=none
+    ) }}
+)
+
+SELECT 
     supplier_pk, 
     company_name, 
     brand, 
     country,
-    current_timestamp as load_datetime,     {# время загрузки #}
-    'stg_sources' as record_source          {# источник загрузки #}
-from
-    {{ source('stg_sources', 'sup_20250313_181244') }}
+    encode(supplier_hashdiff, 'hex') AS supplier_hashdiff, {# Приводим хеш к нормальному виду (избавились от bytea) #}
+    load_datetime,
+    record_source,
+    effective_from
+FROM staged_data
+

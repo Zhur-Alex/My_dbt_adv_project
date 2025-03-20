@@ -1,10 +1,57 @@
-{{
-    config(
-        materialized = 'view'
-    )
-}}
+{%- set yaml_metadata -%}
+source_model: 'ord_20250313_181256'
+derived_columns:
+  order_pk: 'order_pk::text'
+  order_date: 'order_date::text'
+  customer_pk: 'customer_pk::text'
+  product_pk: 'product_pk::text'
+  store_pk: 'store_pk::text'
+  quantity: 'quantity::text'
+  status: 'status::text'
+  load_datetime: 'current_timestamp::text'
+  record_source: "'stg_source'"
+  effective_from: 'order_date::text'
+hashed_columns:
+  order_hashdiff:
+    is_hashdiff: true
+    columns:
+      - order_pk
+      - order_date
+      - customer_pk 
+      - product_pk 
+      - store_pk
+      - quantity 
+      - status
+      - effective_from
+  order_customer_shop_pk:
+    - order_pk
+    - customer_pk
+    - store_pk
+  order_product_pk:
+    - order_pk
+    - product_pk
+{%- endset -%}
 
-select
+{% set metadata_dict = fromyaml(yaml_metadata) %}
+
+{% set source_model = metadata_dict['source_model'] %}
+
+{% set derived_columns = metadata_dict['derived_columns'] %}
+
+{% set hashed_columns = metadata_dict['hashed_columns'] %}
+
+
+WITH order_data AS (
+    {{ automate_dv.stage(
+        include_source_columns=true,
+        source_model=source_model,
+        derived_columns=derived_columns,
+        hashed_columns=hashed_columns,
+        ranked_columns=none
+    ) }}
+)
+
+SELECT 
     order_pk, 
     order_date, 
     customer_pk, 
@@ -12,18 +59,12 @@ select
     store_pk, 
     quantity, 
     status,
-    current_timestamp as load_datetime,     {# время загрузки #}
-    'stg_sources' as record_source,         {# источник загрузки #}
-    {{ 
-        hash(
-            "order_pk || '-' || customer_pk || '-' || store_pk"
-        ) 
-    }} as order_customer_shop_pk,
-    {{ 
-        hash(
-            "order_pk || '-' || product_pk"
-        ) 
-    }} as order_product_pk
+    encode(order_customer_shop_pk, 'hex') AS order_customer_shop_pk,
+    encode(order_product_pk, 'hex') AS order_product_pk,
+    encode(order_hashdiff, 'hex') AS order_hashdiff, {# Приводим хеш к нормальному виду (избавились от bytea) #}
+    load_datetime,
+    record_source,
+    effective_from
+FROM order_data
 
-from
-    {{ source('stg_sources', 'ord_20250313_181256') }}
+

@@ -54,3 +54,5 @@ models:
       sattelites:
         +schema: data_vault
         +tags: sattelites
+vars:
+  hash: md5
