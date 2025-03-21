@@ -9,13 +9,12 @@ derived_columns:
   record_source: "'stg_source'"
   effective_from: 'current_timestamp::text'
 hashed_columns:
-  store_hashdiff:
+  str_hashdiff:
     is_hashdiff: true
     columns:
       - shop_name
       - shop_address 
       - city
-      - effective_from
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}
@@ -42,9 +41,9 @@ SELECT
     shop_name, 
     shop_address, 
     city,
-    encode(store_hashdiff, 'hex') AS store_hashdiff, {# Приводим хеш к нормальному виду (избавились от bytea) #}
     load_datetime,
     record_source,
+    str_hashdiff,
     effective_from
 FROM staged_data
 

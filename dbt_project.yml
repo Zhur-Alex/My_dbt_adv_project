@@ -51,8 +51,8 @@ models:
       links:
         +schema: data_vault
         +tags: links
-      sattelites:
+      satellites:
         +schema: data_vault
-        +tags: sattelites
+        +tags: sats
 vars:
   hash: md5

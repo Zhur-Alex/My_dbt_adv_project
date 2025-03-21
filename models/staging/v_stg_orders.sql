@@ -10,19 +10,15 @@ derived_columns:
   status: 'status::text'
   load_datetime: 'current_timestamp::text'
   record_source: "'stg_source'"
-  effective_from: 'order_date::text'
+  effective_from: 'current_timestamp::text'
 hashed_columns:
-  order_hashdiff:
+  ord_hashdiff:
     is_hashdiff: true
     columns:
       - order_pk
       - order_date
-      - customer_pk 
-      - product_pk 
-      - store_pk
       - quantity 
       - status
-      - effective_from
   order_customer_shop_pk:
     - order_pk
     - customer_pk
@@ -61,9 +57,9 @@ SELECT
     status,
     encode(order_customer_shop_pk, 'hex') AS order_customer_shop_pk,
     encode(order_product_pk, 'hex') AS order_product_pk,
-    encode(order_hashdiff, 'hex') AS order_hashdiff, {# Приводим хеш к нормальному виду (избавились от bytea) #}
     load_datetime,
     record_source,
+    ord_hashdiff, 
     effective_from
 FROM order_data
 

@@ -10,9 +10,9 @@ derived_columns:
   cust_address: 'address::text'
   load_datetime: 'current_timestamp::text'
   record_source: "'stg_source'"
-  effective_from: 'registration_date::text'
+  effective_from: 'current_timestamp::text'
 hashed_columns:
-  customer_hashdiff:
+  cust_hashdiff:
     is_hashdiff: true
     columns:
       - first_name
@@ -21,7 +21,6 @@ hashed_columns:
       - phone_number
       - registration_date
       - cust_address
-      - effective_from
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}
@@ -51,9 +50,9 @@ SELECT
     phone_number,
     registration_date,
     cust_address,
-    encode(customer_hashdiff, 'hex') AS customer_hashdiff, {# Приводим хеш к нормальному виду (избавились от bytea) #}
     load_datetime,
     record_source,
+    cust_hashdiff,
     effective_from
 FROM staged_data
 
